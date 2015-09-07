@@ -199,7 +199,7 @@ This class adds some useful extension methods to Fx23Reader.
 ### Methods
 * `CollectWhile` Moves forward while condition is true, and returns the string scanned
 * `SkipWhile` Moves forward while condition is true
-* `MoveToContent` oves to next non-whitespace character
+* `MoveToContent` Moves to next non-whitespace character
 * `SkipLine` Moves to next line
 * `CollectLine` Moves to next line and returns current line
 
