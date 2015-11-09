@@ -175,33 +175,33 @@ static void PrintInfo(Fx23Reader reader)
 ## Fx23Reader Class
 Base scanner class.
 ### Properties
-* `CollectLineInfo` Counts lineIndex and columnIndex during each read operation, default NO.
-* `Index` The index position of current character.
-* `ColumnIndex` Zero-based column number of current character at current line
-* `LineIndex` Zero-based line number of current character
-* `VisibleIndex` The index position of current character without newline characters
-* `Length` Total length of the string
+* `CollectLineInfo` counts lineIndex and columnIndex during each read operation, default NO.
+* `Index` the index position of current character.
+* `ColumnIndex` zero-based column number of current character at current line.
+* `LineIndex` zero-based line number of current character.
+* `VisibleIndex` the index position of current character without newline characters.
+* `Length` total length of the string.
 
 ### Methods
-* `HasNext` Returns NO if no more character to read
-* `Peek` Returns the next character without moving the internal index
-* `Next` Returns the next character and move the internal index forward
-* `Mark` Marks a flag at current position
-* `Collect` Returns a sub-string from last marked position to current position
-* `NextOverride` Implementated by subclass
-* `PeekOverride` Implementated by subclass
+* `HasNext` returns NO if no more character to read.
+* `Peek` returns the next character without moving the internal index.
+* `Next` returns the next character and move the internal index forward.
+* `Mark` marks a flag at current position.
+* `Collect` returns a sub-string from last marked position to current position.
+* `NextOverride` implementated by subclass.
+* `PeekOverride` implementated by subclass.
 
 ## Fx23StringReader Class
-A concret class derived from Fx23Reader, use this to create a scanner from a string object.
+A concret class derived from Fx23Reader, use this to create a scanner from a string.
 
 ## Fx23ReaderExtension Class
 This class adds some useful extension methods to Fx23Reader.
 ### Methods
-* `CollectWhile` Moves forward while condition is true, and returns the string scanned
-* `SkipWhile` Moves forward while condition is true
-* `MoveToContent` Moves to next non-whitespace character
-* `SkipLine` Moves to next line
-* `CollectLine` Moves to next line and returns current line
+* `CollectWhile` moves forward while condition is true, and returns the string scanned.
+* `SkipWhile` moves forward while condition is true.
+* `MoveToContent` moves to next non-whitespace character.
+* `SkipLine` moves to next line.
+* `CollectLine` moves to next line and returns current line.
 
 
 # License
