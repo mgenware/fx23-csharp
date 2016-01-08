@@ -175,7 +175,7 @@ static void PrintInfo(Fx23Reader reader)
 ## Fx23Reader Class
 Base scanner class.
 ### Properties
-* `CollectLineInfo` counts lineIndex and columnIndex during each read operation, default NO.
+* `CollectLineInfo` counts lineIndex and columnIndex during each read operation, default is false.
 * `Index` the index position of current character.
 * `ColumnIndex` zero-based column number of current character at current line.
 * `LineIndex` zero-based line number of current character.
@@ -183,7 +183,7 @@ Base scanner class.
 * `Length` total length of the string.
 
 ### Methods
-* `HasNext` returns NO if no more character to read.
+* `HasNext` returns false if no more character to read.
 * `Peek` returns the next character without moving the internal index.
 * `Next` returns the next character and move the internal index forward.
 * `Mark` marks a flag at current position.
