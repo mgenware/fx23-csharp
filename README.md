@@ -1,6 +1,38 @@
 # Fx23
 Text scanner, available in [Node.js](https://github.com/mgenware/fx23-node), [C#](https://github.com/mgenware/fx23-csharp) and [Objective-C](https://github.com/mgenware/fx23-objc).
 
+# API
+## Fx23Reader Class
+Base scanner class.
+### Properties
+* `CollectLineInfo` counts lineIndex and columnIndex during each read operation, default is false.
+* `Index` the index position of current character.
+* `ColumnIndex` zero-based column number of current character at current line.
+* `LineIndex` zero-based line number of current character.
+* `VisibleIndex` the index position of current character without newline characters.
+* `Length` total length of the string.
+
+### Methods
+* `HasNext` returns false if no more character to read.
+* `Peek` returns the next character without moving the internal index.
+* `Next` returns the next character and move the internal index forward.
+* `Mark` marks a flag at current position.
+* `Collect` returns a sub-string from last marked position to current position.
+* `NextOverride` implementated by subclass.
+* `PeekOverride` implementated by subclass.
+
+## Fx23StringReader Class
+A concret class derived from Fx23Reader, use this to create a scanner from a string.
+
+## Fx23ReaderExtension Class
+This class adds some useful extension methods to Fx23Reader.
+### Methods
+* `CollectWhile` moves forward while condition is true, and returns the string scanned.
+* `SkipWhile` moves forward while condition is true.
+* `MoveToContent` moves to next non-whitespace character.
+* `SkipLine` moves to next line.
+* `CollectLine` moves to next line and returns current line.
+
 # Example
 ```csharp
 static void Main(string[] args)
@@ -170,39 +202,6 @@ static void PrintInfo(Fx23Reader reader)
 }
 
 ```
-
-# API
-## Fx23Reader Class
-Base scanner class.
-### Properties
-* `CollectLineInfo` counts lineIndex and columnIndex during each read operation, default is false.
-* `Index` the index position of current character.
-* `ColumnIndex` zero-based column number of current character at current line.
-* `LineIndex` zero-based line number of current character.
-* `VisibleIndex` the index position of current character without newline characters.
-* `Length` total length of the string.
-
-### Methods
-* `HasNext` returns false if no more character to read.
-* `Peek` returns the next character without moving the internal index.
-* `Next` returns the next character and move the internal index forward.
-* `Mark` marks a flag at current position.
-* `Collect` returns a sub-string from last marked position to current position.
-* `NextOverride` implementated by subclass.
-* `PeekOverride` implementated by subclass.
-
-## Fx23StringReader Class
-A concret class derived from Fx23Reader, use this to create a scanner from a string.
-
-## Fx23ReaderExtension Class
-This class adds some useful extension methods to Fx23Reader.
-### Methods
-* `CollectWhile` moves forward while condition is true, and returns the string scanned.
-* `SkipWhile` moves forward while condition is true.
-* `MoveToContent` moves to next non-whitespace character.
-* `SkipLine` moves to next line.
-* `CollectLine` moves to next line and returns current line.
-
 
 # License
 [MIT](LICENSE)
